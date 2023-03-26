@@ -9,4 +9,6 @@ public interface Play {
 
     void performAction(Action<?> action);
 
+    String getName();
+
 }

@@ -8,6 +8,8 @@ public interface Game {
 
     Mono<Integer> gamePlayersNumber();
 
+    boolean canAddNewPlayer();
 
+    void addPlayer(Player player);
 
 }

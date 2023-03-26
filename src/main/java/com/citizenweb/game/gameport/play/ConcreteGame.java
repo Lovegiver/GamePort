@@ -1,19 +1,19 @@
 package com.citizenweb.game.gameport.play;
 
 import lombok.Getter;
-import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import java.util.concurrent.atomic.AtomicInteger;
 
 @Getter
-@Component
 public class ConcreteGame implements Game {
 
     private final UUID gameId = UUID.randomUUID();
     private final List<Player> players = new ArrayList<>();
+    private final AtomicInteger maxPlayers = new AtomicInteger(2);
 
     @Override
     public Mono<String> gameId() {
@@ -23,5 +23,15 @@ public class ConcreteGame implements Game {
     @Override
     public Mono<Integer> gamePlayersNumber() {
         return Mono.just(this.players.size());
+    }
+
+    @Override
+    public boolean canAddNewPlayer() {
+        return this.players.size() < this.maxPlayers.get();
+    }
+
+    @Override
+    public void addPlayer(Player player) {
+        this.players.add(player);
     }
 }
