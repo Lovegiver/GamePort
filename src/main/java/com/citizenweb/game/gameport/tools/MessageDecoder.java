@@ -1,11 +1,9 @@
-/*
 package com.citizenweb.game.gameport.tools;
 
 import com.google.gson.Gson;
-
-import javax.websocket.DecodeException;
-import javax.websocket.Decoder;
-import javax.websocket.EndpointConfig;
+import jakarta.websocket.DecodeException;
+import jakarta.websocket.Decoder;
+import jakarta.websocket.EndpointConfig;
 
 public class MessageDecoder implements Decoder.Text<Message> {
 
@@ -32,4 +30,3 @@ public class MessageDecoder implements Decoder.Text<Message> {
         // Close resources
     }
 }
-*/
