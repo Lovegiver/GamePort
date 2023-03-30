@@ -54,8 +54,9 @@ public class Socket {
     }
 
     private void sendMessage(String message) {
+        String m = String.format("%s with session %s", message, this.session.toString());
         try {
-            this.session.getBasicRemote().sendText(message);
+            this.session.getBasicRemote().sendText(m);
         } catch (IOException e) {
             log.severe("Caught exception while sending message to Session Id: " + this.session.getId());
         }
